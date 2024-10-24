@@ -88,34 +88,41 @@ btn4.addEventListener("click", function() {
 
 
 
-const btn01 = document.createElement("button")
-const input01 = document.createElement("input")
-const lista = document.createElement("ul")
+const btn01 = document.createElement("button");
+const input01 = document.createElement("input");
+const lista = document.createElement("ul");
 
-input01.setAttribute("id", "input01")
-input01.style.width = "100px"
-input01.style.height = "50px"
-body.appendChild(input01)
+input01.setAttribute("id", "input01");
+input01.style.width = "100px";
+input01.style.height = "50px";
+document.body.appendChild(input01);
 
-btn01.setAttribute("id", "btn01")
-btn01.style.width = "100px"
-btn01.style.height = "50px"
+btn01.setAttribute("id", "btn01");
+btn01.style.width = "100px";
+btn01.style.height = "50px";
 btn01.textContent = "tekst";
-body.appendChild(btn01)
+document.body.appendChild(btn01);
 
 const br5 = document.createElement("br");
-body.appendChild(br5)
+document.body.appendChild(br5);
 
-lista.setAttribute("id", "lista")
+lista.setAttribute("id", "lista");
+document.body.appendChild(lista); 
+
+btn01.addEventListener("click", () => {
+    const listItem = document.createElement("li")
+    listItem.textContent = input01.value; 
+    lista.appendChild(listItem); 
+    input01.value = ""; 
+});
 
 
 
-btn01.addEventListener("click", function(){
     
 
     
 
 
-})
+
 
 

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const body = document.querySelector("body")
+        const div = document.createElement("div")
+        body.appendChild(div)
+        div.style.height = "500px"
+        div.style.width = "500px"
+        div.style.border = "1px solid black"
+
+        const btn1 = document.createElement("button")
+const btn2 = document.createElement("button")
+
+
+
+
+const btn3 = document.createElement("button")
+body.appendChild(btn3)
+btn3.textContent = "elo"
+btn3.setAttribute("id", "btn3")
+document.getElementById("btn3").addEventListener("click", function(){
+    div.style.backgroundColor = "red"
+})
+const input = document.createElement("input")
+body.appendChild(input)
+input.setAttribute("id", "input")
+document.getElementById("input")
+
+    </script>
+    
+</body>
+</html>
