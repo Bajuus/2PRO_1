@@ -30,8 +30,10 @@ async function kraje() {
     
 
 const data = await getData()
-   
+setTimeout(() =>{})
    for(let i = 0; i <data.length; i++){
+
+    
     
     const div = document.createElement("div")
     div.style.width = "200px"
@@ -61,15 +63,24 @@ const data = await getData()
     const p3 = document.createElement("p")
     p3.innerHTML = "Populacja: " + data[i].population
     div.appendChild(p3)
-    
-    
-    
-}
-   
 
-   
+    div.classList.add("flip-in-hor-bottom")
     
+    
+    setTimeout(() => {
+        div.classList.add("flip-in-hor-bottom");
+    }, i * 500); 
+    setTimeout(() => {
+        div.classList.add("flip-in-hor-bottom");
+    }, i * 500);
+
+}
+
+
+
+
     
 }
+
 kraje()
 
