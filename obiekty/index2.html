@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+            height: 200px; /* Zmieniamy na auto, aby dostosować wysokość do treści */
+            width: 100px;
+            border: solid;
+            text-align: center; /* Wyrównanie zawartości do środka */
+            margin: 10px
+
+        }
+        img{
+            width: 100px;
+        }
+</style>
+<body>
+
+
+    
+</body>
+<script>
+    async function getData(){
+    
+    const data = await fetch('https://restcountries.com/v3.1/all')
+    const json = await data.json()
+    console.log(json)
+    return json
+ }
+
+ async function all(){
+    const data = await getData()
+    
+    
+ for(let i = 0; i <data.length; i++){
+    const data = await getData()
+
+    let div = document.createElement("div")
+    document.querySelector("body").appendChild(div)
+    const img = document.createElement("img")
+    img.setAttribute("src", data[i].flags.png)
+    div.appendChild(img)
+
+
+    const h1 = document.createElement("h1")
+    h1.innerHTML = data[i].name.common
+    div.appendChild(h1)
+
+   
+
+
+}
+}
+all()
+</script>
+</html>
