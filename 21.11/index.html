@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista z opcją dodawania i usuwania</title>
+</head>
+<body>
+    <h2>Jakas lista + localStorage</h2>
+    <input type="text" id="itemInput" placeholder="Wpisz element">
+    <button onclick="addItem()">Dodaj</button>
+    <ul id="itemList"></ul>
+
+    <script>
+      
+        function addItem() {
+            const input = document.getElementById('itemInput');
+            const itemText = input.value.trim();
+        
+            if (itemText !== "") {
+                const li = document.createElement('li');
+                li.textContent = itemText;
+            
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Usuń';
+                removeButton.onclick = function() {
+                    li.remove(); 
+                    saveList(); 
+                };
+                
+                li.appendChild(removeButton);
+                document.getElementById('itemList').appendChild(li);
+                input.value = "";
+                saveList();  
+            }
+        }        
+        function saveList() {
+            const items = [];
+            const listItems = document.querySelectorAll('#itemList li');
+            listItems.forEach(item => {
+                items.push(item.firstChild.textContent); 
+            });
+            localStorage.setItem('listItems', JSON.stringify(items)); 
+        }
+
+
+        function loadList() {
+            const storedItems = JSON.parse(localStorage.getItem('listItems'));
+            if (storedItems) {
+                storedItems.forEach(itemText => {
+                    const li = document.createElement('li');
+                    li.textContent = itemText;
+                    const removeButton = document.createElement('button');
+                    removeButton.textContent = 'Usuń';
+                    removeButton.onclick = function() {
+                        li.remove(); 
+                        saveList(); 
+                    };
+                    li.appendChild(removeButton);
+                    document.getElementById('itemList').appendChild(li);
+                });
+            }
+        }
+        window.onload = function() {
+            loadList();
+        };
+    </script>
+</body>
+</html>
